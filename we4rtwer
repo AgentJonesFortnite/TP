@@ -25,7 +25,7 @@
     - Teleport the vehicle into the sky 
     - Move the vehicle to the target position in the sky 
     - Teleport the vehicle directly downwards to the target position 
-    - the vehicle
+    - Exit the vehicle
 ]]
 
 --// services
@@ -335,8 +335,8 @@ local function teleport(cframe, tried) -- unoptimized
 
             repeat -- attempt to exit car
                 task.wait(0.15);
-              
- 
+        
+            until vehicle_object.Seat.PlayerName.Value ~= player.Name;
         end;
     else
         movement:move_to_position(player.Character.HumanoidRootPart, cframe, dependencies.variables.player_speed);
